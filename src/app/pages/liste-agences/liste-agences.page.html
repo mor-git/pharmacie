@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-img slot="end" src="./assets/img/logo.png" class="logo"></ion-img>
+  <ion-title start >Pharmacies</ion-title>
+</ion-toolbar>
+
+</ion-header>
+
+<ion-content >
+<div class="background">
+  <ion-grid >
+    <ion-row >
+     <ion-col size="12">
+        <!-- <ion-list style="background-color: #DCDCDC;"> -->
+          <ion-card  id="card" *ngFor="let item of lisetAgences2">    
+                <div class="card-title">
+                  <p style="font-weight: 200;"><ion-icon name="home-outline"></ion-icon>&nbsp;&nbsp;&nbsp;{{ item.name }}</p>
+                  <p><ion-icon name="map-outline"></ion-icon>&nbsp;&nbsp;&nbsp;{{ item.adresse }}</p>
+                  <b><ion-icon name="call-outline"></ion-icon></b>&nbsp;{{item.phone}}&nbsp;&nbsp;&nbsp;
+                  <b>Statut :</b>
+                  <span style="font-weight: 200; font-size: 16px;" *ngIf="item.status === 0"><b>&nbsp;Fermé</b></span>
+                  <span style="font-weight: 200; font-size: 14px;" *ngIf="item.status === 1"><b>&nbsp;Ouvert</b></span>  
+                </div>
+          </ion-card>
+        <!-- </ion-list> -->
+     </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+</ion-content>

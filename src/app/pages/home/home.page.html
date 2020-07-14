@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-img slot="end" src="./assets/img/logo.png" class="logo"></ion-img>
+  <ion-title start >Accueil</ion-title>
+</ion-toolbar>
+
+</ion-header>
+
+<ion-content padding  class="background">
+  <ion-grid>
+    <br><br><br>
+    <!-- <ion-row>
+      <ion-col size="12">
+        <div>
+          <ion-item>
+            <ion-label>Type structure</ion-label>
+            <ion-select name="type"  (ionChange)="getTypeStrcuture($event)">
+              <ion-select-option *ngFor="let typeStructure of typeStructures"  value="{{typeStructure.id}}">{{typeStructure.type}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+    <br><br>
+    <ion-row  size="12">
+      <ion-col>
+        <div>
+          <ion-item>
+            <ion-label>Structure</ion-label>
+            <ion-select name="structure" [(ngModel)]="struct">
+              <ion-select-option *ngFor="let structure of structureForTypeStructure" value="{{structure.name}}">{{structure.name}}</ion-select-option>
+             
+            </ion-select>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row> -->
+    <br><br>
+    <ion-row  size="12">
+      <ion-col>
+        <div>
+          <ion-item>
+            <ion-label>Région</ion-label>
+            <ion-select name="region" (ionChange)="getRegion($event)">
+              <ion-select-option *ngFor="let reg of allRegions"  value="{{reg.id}}" >{{reg.name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+    <br><br>
+    <ion-row  size="12">
+      <ion-col>
+        <div>
+          <ion-item>
+            <ion-label>Ville</ion-label>
+            <ion-select name="ville" [(ngModel)]="ville">
+              <ion-select-option *ngFor="let dep of communes" value="{{dep.id}}">{{dep.name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+    <br><br>
+    <ion-row  size="12">
+      <ion-col>
+        <div>
+         <ion-button (click)="recherche()"  shape="round" expand="full" fill="outline">Rechercher</ion-button>
+          </div>
+      </ion-col>
+</ion-row>
+  </ion-grid>
+</ion-content>

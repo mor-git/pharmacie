@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Accueil</ion-title>
+    <ion-img slot="end" src="./assets/img/logo.png" class="logo"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background" [fullscreen]="true">
+
+
+  <div id="container" style="margin-top: 5px;">
+    <ion-grid fixed width="100%">
+      <ion-row>
+        <ion-col size="12">
+          <ion-card>
+             <img class="img-fluid campaign" style="width: 70%;height: 30%;" (click)="search()"  src="./assets/img/search.jpg"  />
+          </ion-card>
+        </ion-col>
+        <ion-col size="12">
+         <ion-card>
+          <img class="img-fluid campaign" style="width: 70%;height: 30%;" (click)="favori()" src="./assets/img/FAVORI.jpg"  />
+         </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title> <p style="font-size: 12px;">Copyright &copy; 2020 yombal</p></ion-title>
+  </ion-toolbar>
+</ion-footer>
