@@ -20,7 +20,7 @@
 
 </ion-content> -->
 
-<ion-header translucent no-border>
+<!-- <ion-header translucent no-border>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button color="light">
@@ -40,66 +40,90 @@
 <ion-content fullscreen="true" slot="fixed">
   <div class="card">
     <div class="header">
-      <div class="avatar">
+      <!-- <div class="avatar">
         <img src="../../../assets/img/banque/{{infos.logo}}" alt="">
-      </div>
-    </div>
+      </div> -->
+ 
+
+
+<ion-header translucent no-border>
+  <ion-toolbar>
+    <p style="text-align: center;color: #fff;"><b >PHARMACIE</b></p>
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="connexion()"  >
+        <ion-icon style="color: aliceblue"  name="person-outline"></ion-icon>
+      </ion-button> -->
+    <!-- </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" slot="fixed">
+  <div class="cards">
+    <div class="headers">
+      
+    </div> 
   </div>
-  <br>
-  <div class="card-body" style="margin: -5px;">
+  <div class="card-body" >
     <div class="user-meta ion-text-center">
-      <h3 class="playername">{{infos.name}}</h3>
-      <h5 class="country">{{infos.ville}}</h5>
-      <ion-card *ngIf="showMap === false">
-        <ion-item>
-          <p>Tél: 77 856 96 95</p>
-        </ion-item>
-        <ion-item>
-          <p>Email: bici-malem@bicis.sn</p>
-        </ion-item>
-        <ion-item style="border-top: 2px solid gray;">
-          <h6 class="ranking">En attente: &nbsp;&nbsp; &nbsp;&nbsp;<ion-chip color="danger">
-              <ion-label>2</ion-label>
-            </ion-chip>
-          </h6>
-          &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-          &nbsp;&nbsp; &nbsp;&nbsp;
-          <ion-icon *ngIf="favori == false" color="warning" name="heart-circle-outline" (click)="addFavori(infos)"></ion-icon>
-          <ion-icon *ngIf="favori == true" color="danger" name="heart-circle-outline" (click)="deleteFavori(infos)"></ion-icon>
-        </ion-item>
+      
+          <div class="card-body" style="margin-top: -50px;">
+            <div class="user-meta ion-text-center">
+              <h3 class="playername">{{infos.name}}</h3>
+              <h5 class="country">{{infos.adresse}}</h5>
+              <ion-card *ngIf="showMap === false">
+               
+                  <p>Tél: {{infos.telephone}}</p>
+              
+                  <p style="color: green;" *ngIf="infos.status == 1"><b>En garde</b></p>
+                  <p style="color: red;" *ngIf="infos.status == 0"><b>Garde terminé</b></p>
+              
+                <ion-item style="border-top: 2px solid gray;">
+                  <ion-icon *ngIf="favori == false" color="warning" name="heart-circle-outline" (click)="addFavori(infos)"></ion-icon>
+                  <ion-icon *ngIf="favori == true" color="danger" name="heart-circle-outline" (click)="deleteFavori(infos)"></ion-icon>
+                </ion-item>
+        
+              </ion-card>
+              <br>
+              <div *ngIf="showMap === true">
+                <ion-buttons slot="end">
+                  <ion-button (click)="closeMap()">
+                    <ion-icon style="zoom: 1.5;color: black" slot="icon-only" name="close-outline"></ion-icon>
+                  </ion-button>
+                </ion-buttons>
+                <agm-map [style.height.px]="300" [latitude]="latitude" [longitude]="longitude" [zoom]="13">
+                  <agm-direction [origin]="origin" [destination]="destination">
+                  </agm-direction>
+                  <!-- <agm-marker id="my" [latitude]="latitude" [longitude]="longitude"></agm-marker> -->
+                  <!--   <agm-marker [latitude]="latitudePres" [longitude]="longitudePres"></agm-marker> -->
+                </agm-map>
+        
+              </div>
+              <!--  -->
+              <!-- <div id="map_canvas"></div> -->
+        
+        
+            </div>
+           
+            <ion-row *ngIf="showMap === false">
+             
+              <ion-col size="12">
 
-      </ion-card>
+                <ion-button style="color: #fff;" (click)="geoLocaliser()"  shape="round" expand="full" >Géolocaliser</ion-button>
+              </ion-col>
+            </ion-row>
+        
+        
+          </div>
+        
+          <p style="text-align: center;font-size: 8px;">Mor SA &copy;2020 </p>
+     
       <br>
-      <div *ngIf="showMap === true">
-        <ion-buttons slot="end">
-          <ion-button (click)="closeMap()">
-            <ion-icon style="zoom: 1.5;color: black" slot="icon-only" name="close-outline"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <agm-map [style.height.px]="300" [latitude]="latitude" [longitude]="longitude" [zoom]="13">
-          <agm-direction [origin]="origin" [destination]="destination">
-          </agm-direction>
-          <!-- <agm-marker id="my" [latitude]="latitude" [longitude]="longitude"></agm-marker> -->
-          <!--   <agm-marker [latitude]="latitudePres" [longitude]="longitudePres"></agm-marker> -->
-        </agm-map>
-
-      </div>
-      <!--  -->
-      <!-- <div id="map_canvas"></div> -->
 
 
+    
     </div>
     <br><br>
-    <ion-row *ngIf="showMap === false">
-      <ion-col size="6">
-        <ion-button shape="round" expand="full" fill="outline" color="success">Réserver ticket</ion-button>
-      </ion-col>
-      <ion-col size="6">
-        <ion-button shape="round" expand="full" fill="outline" color="success" (click)="geoLocaliser()">Géolocaliser
-        </ion-button>
-      </ion-col>
-    </ion-row>
-
+   
 
   </div>
 

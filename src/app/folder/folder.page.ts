@@ -27,4 +27,8 @@ export class FolderPage implements OnInit {
   favori(){
     this.route.navigateByUrl('favori');
   }
+
+  apropos(){
+    
+  }
 }

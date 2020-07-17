@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HTTP } from '@ionic-native/http/ngx';
 import { Observable } from 'rxjs';
 const HttpOptions = {
   headers: new HttpHeaders(
     {
       'Content-Type': 'application/json',
-      'dataType': 'JSON'
+      //'dataType': 'JSON'
     })
 }
 @Injectable({
@@ -13,13 +14,15 @@ const HttpOptions = {
 })
 export class ApiService {
   url = "";
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private http2 : HTTP) { }
 
-  allRegion(){
-    return this.http.get("http://localhost:8000/api/apiRegions", HttpOptions);
+  allRegion() : Observable<any>{
+    return this.http.get("http://localhost:8000/api/apiRegions", {});
   }
-
-  getPharmacieByCommune(tab){
+  // allRegion(){
+  //   return this.http2.get("http://localhost:8000/api/apiRegions", {}, {});
+  // }
+  getPharmacieByCommune(tab:any) :Observable<any>{
     return this.http.post<any>("http://localhost:8000/api/pharmaciesApi",tab, HttpOptions);
   }
 
@@ -34,18 +37,18 @@ export class ApiService {
   // }
 
 
-  // allStructure(credentiel): Observable<any> {
-  //   //return this.http.post<any>(this.url, credentiel, HttpOptions);
-  //   let mystructure :any = [
-  //       {id: 1 ,name: 'Bicis' ,logo:'',type:2},
-  //       {id: 2 ,name: 'ECOBANK' ,logo:'',type:2},
-  //       {id: 3 ,name: 'BOA' ,logo:'',type:2},
-  //       {id: 4 ,name: 'ORANGE' ,logo:'',type:3},
-  //       {id: 5 ,name: 'TIGO' ,logo:'',type:3},
-  //       {id: 6 ,name: 'EXPRESSO' ,logo:'',type:3},
-  //       {id: 7 ,name: 'SDE' ,logo:'',type:6},
-  //       {id: 8 ,name: 'SENELEC' ,logo:'',type:6},
-  //   ];
-  //   return mystructure;
-  // }
+  allStructure(credentiel): Observable<any> {
+    //return this.http.post<any>(this.url, credentiel, HttpOptions);
+    let mystructure :any = [
+        {id: 1 ,name: 'Pharmacie 1' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555},
+        {id: 2 ,name: 'Pharmacie 2' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555},
+        {id: 3 ,name: 'Pharmacie 3' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555},
+        {id: 4 ,name: 'Pharmacie 4' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555},
+        {id: 5 ,name: 'Pharmacie 5' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555},
+        {id: 6 ,name: 'Pharmacie 6' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555},
+        {id: 7 ,name: 'Pharmacie 7' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555},
+        {id: 8 ,name: 'Pharmacie 8' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555},
+    ];
+    return mystructure;
+  }
 }

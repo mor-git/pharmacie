@@ -1,43 +1,17 @@
 <ion-header>
-  <ion-toolbar >
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-img slot="end" src="./assets/img/logo.png" class="logo"></ion-img>
-  <ion-title start >Accueil</ion-title>
+<ion-toolbar color="success">
+   
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="folder"  style="color: #fff;" ></ion-back-button>
+   </ion-buttons>
+   <p style="text-align: center;color: #fff;"><b >PHARMACIE</b></p>
 </ion-toolbar>
-
 </ion-header>
 
 <ion-content padding  class="background">
   <ion-grid>
     <br><br><br>
-    <!-- <ion-row>
-      <ion-col size="12">
-        <div>
-          <ion-item>
-            <ion-label>Type structure</ion-label>
-            <ion-select name="type"  (ionChange)="getTypeStrcuture($event)">
-              <ion-select-option *ngFor="let typeStructure of typeStructures"  value="{{typeStructure.id}}">{{typeStructure.type}}</ion-select-option>
-            </ion-select>
-          </ion-item>
-        </div>
-      </ion-col>
-    </ion-row>
-    <br><br>
-    <ion-row  size="12">
-      <ion-col>
-        <div>
-          <ion-item>
-            <ion-label>Structure</ion-label>
-            <ion-select name="structure" [(ngModel)]="struct">
-              <ion-select-option *ngFor="let structure of structureForTypeStructure" value="{{structure.name}}">{{structure.name}}</ion-select-option>
-             
-            </ion-select>
-          </ion-item>
-        </div>
-      </ion-col>
-    </ion-row> -->
+
     <br><br>
     <ion-row  size="12">
       <ion-col>
@@ -64,13 +38,17 @@
         </div>
       </ion-col>
     </ion-row>
-    <br><br>
+    <br><br><br>
     <ion-row  size="12">
       <ion-col>
         <div>
-         <ion-button (click)="recherche()"  shape="round" expand="full" fill="outline">Rechercher</ion-button>
+         <ion-button style="color: #fff;" (click)="recherche()"  shape="round" expand="full" >Recherche</ion-button>
           </div>
       </ion-col>
-</ion-row>
+    </ion-row>
   </ion-grid>
 </ion-content>
+<ion-toolbar>
+  <p style="text-align: center;font-size: 8px;">MoR SA &copy;2020 </p>
+</ion-toolbar>
+

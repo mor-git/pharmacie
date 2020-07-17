@@ -1,50 +1,25 @@
 <ion-header>
-  <ion-toolbar >
+  <ion-toolbar color="success">
+     
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-img slot="end" src="./assets/img/logo.png" class="logo"></ion-img>
-  <ion-title start >Favori</ion-title>
-</ion-toolbar>
-
-</ion-header>
+      <ion-back-button defaultHref="folder"  style="color: #fff;" ></ion-back-button>
+     </ion-buttons>
+     <p style="text-align: center;color: #fff;"><b >FAVORI</b></p>
+  </ion-toolbar>
+  </ion-header>
 
 <ion-content padding >
   <ion-list>
-    <ion-card  *ngFor="let item of lisetAgences2">
-       <ion-grid>
-         <ion-row>
-           <ion-col size="4">
-            <div class="item item-input-inset">
-              <ion-avatar  item-start>
-                <img src="../../../assets/img/banque/{{item.logo}}" style="border-radius:0%;width:60px;height:60px;">
-              </ion-avatar>
-          </div>
-           </ion-col>
-       
-          <ion-col size="8">
-          
-            <div class="card-desc-cvr">    
-             
-              <div class="card-title">
-                <p style="font-weight: 200;"><b>>> {{ item.name }}</b></p>
-              </div>
-              <div text-wrap class="card-subtitle" (click)="showAgence(item)">
-                {{ item.nomStructure }} &nbsp;&nbsp;&nbsp;&nbsp;  {{item.ville}}
-                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <ion-icon style="zoom: 1.5;"  class="large" color="success" name="eye-outline" slot="end" ></ion-icon>      
-              </div>
-           </div>
-          
-         
-          </ion-col>
-        </ion-row>
+    <ion-card  id="card" *ngFor="let item of lisetAgences2" (click)="showAgence(item)">    
+      <div class="card-title">
+        <p style="font-weight: 200;"><ion-icon name="home-outline"></ion-icon><b>&nbsp;&nbsp;&nbsp;{{ item.name }}</b></p>
+        <p><ion-icon name="map-outline"></ion-icon>&nbsp;&nbsp;&nbsp;{{ item.adresse }}</p>
+        <b><ion-icon name="call-outline"></ion-icon></b>&nbsp;{{item.telephone}}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         
-       </ion-grid>
-       
-   
-           
-          
-
+        <span style="font-weight: 200; font-size: 16px;color: red;" *ngIf="item.status === 0"><b>&nbsp;Garde terminé</b></span>
+        <span style="font-weight: 200; font-size: 14px;color:green" *ngIf="item.status === 1"><b>&nbsp;En garde</b></span>  
+      </div>
     </ion-card>
   </ion-list>
 </ion-content>

@@ -30,14 +30,22 @@ export class HomePage implements OnInit {
     }); 
     await loading.present();
     this.apiService.allRegion().subscribe(res=>{
-    this.allRegions = res;
-    console.log(res);
-
-     if(this.allRegions){
-       loading.dismiss();
-     }
-
+      console.log(res);
+      
     });
+    // const recup = this.apiService.allRegion();
+    // recup.finally(()=>{
+    //   loading.dismiss();
+    // }).then(res=>{
+    //   console.log(JSON.parse(res.data));
+    //   this.allRegions = JSON.parse(res.data);
+      
+      
+    // });
+
+    
+
+
   }
   ionViewDidEnter(){ 
     this.listRegion();

@@ -63,21 +63,36 @@ export class ListeAgencesPage implements OnInit {
         message : "Patientez s'il vous plait"
     });
 
-    await loading.present();
+   // await loading.present();
 
     this.activatedRoute.queryParams.subscribe(params => {
       let infos = JSON.parse(params.data);
 
-      this.apiService.getPharmacieByCommune(infos).subscribe(res=>{
-        this.lisetAgences2 = res;
-        console.log(this.lisetAgences2);
-        loading.dismiss();
-      });
+      // this.apiService.getPharmacieByCommune(infos).subscribe(res=>{
+      //   this.lisetAgences2 = res;
+      //   console.log(this.lisetAgences2);
+      //   loading.dismiss();
+      // });
+      let mystructure :any = [
+        {id: 1 ,name: 'Pharmacie 1' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555,status:1},
+        {id: 2 ,name: 'Pharmacie 2' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555,status:0},
+        {id: 3 ,name: 'Pharmacie 3' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555,status:1},
+        {id: 4 ,name: 'Pharmacie 4' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555,status:0},
+        {id: 5 ,name: 'Pharmacie 5' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555,status:1},
+        {id: 6 ,name: 'Pharmacie 6' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555,status:0},
+        {id: 7 ,name: 'Pharmacie 7' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555,status:1},
+        {id: 8 ,name: 'Pharmacie 8' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555,status:1},
+        {id: 7 ,name: 'Pharmacie 9' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555,status:1},
+        {id: 8 ,name: 'Pharmacie 10' ,adresse:'thies 3',telephone:"77 236 96 25",lat:192005,lng:822555,status:1},
+    ];
+    this.lisetAgences2 = mystructure;
 
     });
 
     
    }
+
+
 
   async showAgence(item){
      console.log(item);

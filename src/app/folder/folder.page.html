@@ -1,35 +1,57 @@
-<ion-header [translucent]="true">
+
+<ion-header >
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Accueil</ion-title>
-    <ion-img slot="end" src="./assets/img/logo.png" class="logo"></ion-img>
+    <p style="text-align: center;color: #fff;"><b >PHARMACIE</b></p>
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="connexion()"  >
+        <ion-icon style="color: aliceblue"  name="person-outline"></ion-icon>
+      </ion-button> -->
+    <!-- </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="background" [fullscreen]="true">
-
-
-  <div id="container" style="margin-top: 5px;">
-    <ion-grid fixed width="100%">
+<ion-content fullscreen="true" slot="fixed">
+  <div class="cards">
+    <div class="headers">
+      
+    </div> 
+  </div>
+  <br>
+  <div class="card-body" style="margin: -5px;">
+    <div class="user-meta ion-text-center">
       <ion-row>
         <ion-col size="12">
-          <ion-card>
-             <img class="img-fluid campaign" style="width: 70%;height: 30%;" (click)="search()"  src="./assets/img/search.jpg"  />
-          </ion-card>
+             <b>Informations</b>
         </ion-col>
+      </ion-row><br>
+      <ion-row>
         <ion-col size="12">
-         <ion-card>
-          <img class="img-fluid campaign" style="width: 70%;height: 30%;" (click)="favori()" src="./assets/img/FAVORI.jpg"  />
-         </ion-card>
+          <ion-button shape="round" expand="full" style="color: #fff;" (click)="apropos()">A propos</ion-button>
         </ion-col>
       </ion-row>
-    </ion-grid>
+      <br>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button shape="round" expand="full" style="color: #fff;" (click)="search()">Recherche</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <br>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button shape="round" expand="full" style="color: #fff;" (click)="favori()">Favori</ion-button>
+        </ion-col>
+      </ion-row>
+      <br>
+      <br>
+      <!--  -->
+      <!-- <div id="map_canvas"></div> -->
+
+      <p style="text-align: center;font-size: 8px;">Mor SA &copy;2020 </p>
+    </div>
+    <br><br>
+   
+
   </div>
+
 </ion-content>
-<ion-footer>
-  <ion-toolbar>
-    <ion-title> <p style="font-size: 12px;">Copyright &copy; 2020 yombal</p></ion-title>
-  </ion-toolbar>
-</ion-footer>
