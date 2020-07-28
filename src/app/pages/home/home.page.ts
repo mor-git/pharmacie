@@ -30,8 +30,9 @@ export class HomePage implements OnInit {
     }); 
     await loading.present();
     this.apiService.allRegion().subscribe(res=>{
+      this.allRegions = res;
       console.log(res);
-      
+      loading.dismiss();
     });
     // const recup = this.apiService.allRegion();
     // recup.finally(()=>{
@@ -42,51 +43,32 @@ export class HomePage implements OnInit {
       
       
     // });
-
-    
-
-
   }
   ionViewDidEnter(){ 
     this.listRegion();
     }
- 
-   
-// getTypeStrcuture(ev){
-//   console.log(ev.target.value);
-//   this.structures.forEach(el => {
-//       if(el.type == ev.target.value )
-//       {
-//         this.structureForTypeStructure.push(el);
-//       }
-//   });
- 
-  
-// }
 
-getRegion(ev){
-  this.communes = this.allRegions.find(x=>x.id == ev.target.value);
-  this.communes = this.communes.communes;
+  getRegion(ev){
+    this.communes = this.allRegions.find(x=>x.id == ev.target.value);
+    this.communes = this.communes.communes;
 
-  console.log(this.communes);
-  
-}
-
-
-
-recherche(){
-  let infos = {
-  id: this.ville,
+    console.log(this.communes);
+    
   }
-  this.apiService.getPharmacieByCommune(infos).subscribe(res=>{
-      console.log(res);
-  });
-  const navigationExtras: NavigationExtras = {
-    queryParams: {
-      data: JSON.stringify(infos),  
+
+  recherche(){
+    let infos = {
+    id: this.ville,
     }
-  };
-  this.route.navigate(['/liste-agences'], navigationExtras);
-}
+    this.apiService.getPharmacieByCommune(infos).subscribe(res=>{
+        console.log(res);
+    });
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        data: JSON.stringify(infos),  
+      }
+    };
+    this.route.navigate(['/liste-agences'], navigationExtras);
+  }
 
 }

@@ -39,14 +39,16 @@ export class InfosAgencePage implements OnInit {
     });
     
   }
-  load() {
+  load(item) {
     this.geolocation.getCurrentPosition().then((resp) => {
         this.latitude= resp.coords.latitude;
         this.longitude= resp.coords.longitude;
-        console.log(this.latitude);
+        let lat : any =  parseFloat(item.latitude);
+        let lng : any = parseFloat(item.longitude);
+
         
         this.origin = { lat: this.latitude, lng: this.longitude };
-        this.destination = { lat: 14.7030441, lng: -17.4638227 };
+        this.destination = { lat: lat, lng: lng };
         //const latLng = new google.maps.LatLng(lat, lng);
         // this.map = new google.maps.Map(document.getElementById('map_canvas'), {
         //     zoom: 14,
@@ -57,12 +59,12 @@ export class InfosAgencePage implements OnInit {
 
     });
  }
-  geoLocaliser(){
+  geoLocaliser(item){
    this.showMap = true;
   // this.displayGoogleMap();
   //   let myLoc = {name : 'test' ,lat :28.6117993, long : 77.2194934};
   // this.addMarkersToMap(myLoc);
-  this.load();
+  this.load(item);
   }
   closeMap(){
     this.showMap = false;
@@ -71,18 +73,7 @@ export class InfosAgencePage implements OnInit {
     this.infos = {};
     this.modaCtrl.dismiss();
   }
-  // displayGoogleMap() {
-  //   const latLng = new google.maps.LatLng(28.6117993, 77.2194934);
 
-  //   const mapOptions = {
-  //     center: latLng,
-  //     disableDefaultUI: true,
-  //     zoom: 4,
-  //     mapTypeId: google.maps.MapTypeId.ROADMAP
-  //   };
-
-  //   this.map = new google.maps.Map(this.mapContainer.nativeElement, mapOptions);
-  // }
   addMarkersToMap(museum) {
     const position = new google.maps.LatLng(museum.lat, museum.long);
     const museumMarker = new google.maps.Marker({ position, title: museum.name });
@@ -93,7 +84,7 @@ export class InfosAgencePage implements OnInit {
     const toast = await this.toast.create({
       message : message,
       duration : 1000,
-      position: "middle"
+      position: "top"
     });
     toast.present();
   }
@@ -125,7 +116,7 @@ export class InfosAgencePage implements OnInit {
     });
     
    
-    this.presenToast('Agence ajouté dans favori');
+    this.presenToast('Pharmacie ajouté dans favoris');
   }
 
   //delete favori 
@@ -154,6 +145,6 @@ export class InfosAgencePage implements OnInit {
     });
     
   
-    this.presenToast('Agence rétiré des favori')
+    this.presenToast('Agence rétiré des favoris')
   }
 }

@@ -4,12 +4,12 @@
   <ion-buttons slot="start">
     <ion-back-button defaultHref="folder"  style="color: #fff;" ></ion-back-button>
    </ion-buttons>
-   <p style="text-align: center;color: #fff;"><b >PHARMACIE</b></p>
+   <p style="text-align: center;color: #fff;margin-left: -50px;"><b >PHARMACIE</b></p>
 </ion-toolbar>
 </ion-header>
 
 <ion-content padding  class="background">
-  <ion-grid>
+  <ion-grid class="card-back">
     <br><br><br>
 
     <br><br>
@@ -30,7 +30,7 @@
       <ion-col>
         <div>
           <ion-item>
-            <ion-label>Ville</ion-label>
+            <ion-label>Commune</ion-label>
             <ion-select name="ville" [(ngModel)]="ville">
               <ion-select-option *ngFor="let dep of communes" value="{{dep.id}}">{{dep.name}}</ion-select-option>
             </ion-select>
@@ -48,7 +48,7 @@
     </ion-row>
   </ion-grid>
 </ion-content>
-<ion-toolbar>
-  <p style="text-align: center;font-size: 8px;">MoR SA &copy;2020 </p>
+<ion-toolbar color="secondary">
+  <p style="text-align: center;font-size: 10px;">Mor SA &copy;2020 </p>
 </ion-toolbar>
 

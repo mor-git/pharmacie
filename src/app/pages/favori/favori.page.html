@@ -4,22 +4,25 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="folder"  style="color: #fff;" ></ion-back-button>
      </ion-buttons>
-     <p style="text-align: center;color: #fff;"><b >FAVORI</b></p>
+     <p style="text-align: center;color: #fff;"><b >FAVORIS</b></p>
   </ion-toolbar>
   </ion-header>
 
-<ion-content padding >
+<ion-content padding class="background">
   <ion-list>
-    <ion-card  id="card" *ngFor="let item of lisetAgences2" (click)="showAgence(item)">    
-      <div class="card-title">
+    <ion-card  id="card" *ngFor="let item of lisetAgences2" (click)="showAgence(item)" class="card-back">    
+      <div class="card-title" style="margin-left: 5px;">
         <p style="font-weight: 200;"><ion-icon name="home-outline"></ion-icon><b>&nbsp;&nbsp;&nbsp;{{ item.name }}</b></p>
         <p><ion-icon name="map-outline"></ion-icon>&nbsp;&nbsp;&nbsp;{{ item.adresse }}</p>
-        <b><ion-icon name="call-outline"></ion-icon></b>&nbsp;{{item.telephone}}
+        <b><ion-icon name="call-outline"></ion-icon></b>&nbsp;{{item.phone}}
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         
-        <span style="font-weight: 200; font-size: 16px;color: red;" *ngIf="item.status === 0"><b>&nbsp;Garde terminé</b></span>
-        <span style="font-weight: 200; font-size: 14px;color:green" *ngIf="item.status === 1"><b>&nbsp;En garde</b></span>  
+       
       </div>
     </ion-card>
   </ion-list>
 </ion-content>
+<ion-toolbar color="secondary">
+  <p style="text-align: center;font-size: 10px;">Mor SA &copy;2020 </p>
+</ion-toolbar>
+

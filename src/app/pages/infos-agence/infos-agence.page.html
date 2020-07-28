@@ -1,93 +1,40 @@
-<!-- <ion-header>
-  <ion-toolbar color="primary">
-   
-    <ion-img slot="start" src="../../../assets/img/logo.png" class="logo"></ion-img>
-    <ion-title  start >Infos Agence</ion-title>
-    <ion-buttons slot="end">
-    <ion-button (click)="closeModal()">
-        <ion-icon slot="icon-only" name="close"></ion-icon>
-    </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-<ion-content>
-
- 
-  <ion-avatar>
-    <img src="../../../assets/img/banque/{{infos.logo}}" style="zoom: 2.5;border-radius:2%;width:80px;height:80px;">
-  </ion-avatar>
-
-
-</ion-content> -->
-
-<!-- <ion-header translucent no-border>
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="success">
+     
     <ion-buttons slot="start">
-      <ion-button color="light">
-        <ion-icon style="zoom: 2.5;color: aliceblue" slot="start" name="ios-arrow-back"></ion-icon>
-        <b>Infos agence</b>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>&nbsp;</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="closeModal()">
-        <ion-icon style="zoom: 2.5;color: aliceblue" slot="icon-only" name="close-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+      <ion-back-button defaultHref="home"  style="color: #fff;" ></ion-back-button>
+     </ion-buttons>
+     <p style="text-align: center;color: #fff;margin-left: -50px;"><b >PHARMACIE</b></p>
   </ion-toolbar>
-</ion-header>
+  </ion-header>
 
-<ion-content fullscreen="true" slot="fixed">
-  <div class="card">
-    <div class="header">
-      <!-- <div class="avatar">
-        <img src="../../../assets/img/banque/{{infos.logo}}" alt="">
-      </div> -->
+<ion-content paddin class="back-color">
  
-
-
-<ion-header translucent no-border>
-  <ion-toolbar>
-    <p style="text-align: center;color: #fff;"><b >PHARMACIE</b></p>
-    <!-- <ion-buttons slot="end">
-      <ion-button (click)="connexion()"  >
-        <ion-icon style="color: aliceblue"  name="person-outline"></ion-icon>
-      </ion-button> -->
-    <!-- </ion-buttons> -->
-  </ion-toolbar>
-</ion-header>
-
-<ion-content fullscreen="true" slot="fixed">
-  <div class="cards">
-    <div class="headers">
-      
-    </div> 
-  </div>
-  <div class="card-body" >
+  <div class="card-body" style="margin-top:100px;" >
     <div class="user-meta ion-text-center">
       
-          <div class="card-body" style="margin-top: -50px;">
+          <div class="card-body">
             <div class="user-meta ion-text-center">
-              <h3 class="playername">{{infos.name}}</h3>
-              <h5 class="country">{{infos.adresse}}</h5>
-              <ion-card *ngIf="showMap === false">
-               
-                  <p>Tél: {{infos.telephone}}</p>
-              
+              <h3 >{{infos.name}}</h3>
+              <h5 > <ion-icon name="map-outline"></ion-icon> {{infos.adresse}}</h5>
+              <ion-card *ngIf="showMap === false" class="card-color">
+                  <br>
+                  <p><ion-icon name="call-outline"></ion-icon> {{infos.phone}}</p>
+                   <br>
                   <p style="color: green;" *ngIf="infos.status == 1"><b>En garde</b></p>
                   <p style="color: red;" *ngIf="infos.status == 0"><b>Garde terminé</b></p>
               
-                <ion-item style="border-top: 2px solid gray;">
-                  <ion-icon *ngIf="favori == false" color="warning" name="heart-circle-outline" (click)="addFavori(infos)"></ion-icon>
-                  <ion-icon *ngIf="favori == true" color="danger" name="heart-circle-outline" (click)="deleteFavori(infos)"></ion-icon>
-                </ion-item>
+                    <br>
+                  <ion-icon style="zoom: 2.5;" *ngIf="favori == false" color="warning" name="heart-circle-outline" (click)="addFavori(infos)"></ion-icon>
+                  <ion-icon style="zoom: 2.5;" *ngIf="favori == true" color="danger" name="heart-circle-outline" (click)="deleteFavori(infos)"></ion-icon>
+                
         
               </ion-card>
               <br>
-              <div *ngIf="showMap === true">
-                <ion-buttons slot="end">
+              <div *ngIf="showMap === true" style="margin-left: 10px;margin-right: 10px;">
+                <ion-buttons > 
                   <ion-button (click)="closeMap()">
-                    <ion-icon style="zoom: 1.5;color: black" slot="icon-only" name="close-outline"></ion-icon>
+                 Fermer
                   </ion-button>
                 </ion-buttons>
                 <agm-map [style.height.px]="300" [latitude]="latitude" [longitude]="longitude" [zoom]="13">
@@ -108,23 +55,29 @@
              
               <ion-col size="12">
 
-                <ion-button style="color: #fff;" (click)="geoLocaliser()"  shape="round" expand="full" >Géolocaliser</ion-button>
+                <ion-button style="color: #fff;" (click)="geoLocaliser(infos)"  shape="round" expand="full" >Géolocaliser</ion-button>
               </ion-col>
             </ion-row>
         
         
           </div>
         
-          <p style="text-align: center;font-size: 8px;">Mor SA &copy;2020 </p>
+       
      
       <br>
 
 
     
     </div>
-    <br><br>
-   
+ 
 
   </div>
 
 </ion-content>
+<ion-footer>
+  <ion-toolbar color="secondary">
+    <p style="text-align: center;font-size: 10px;">Mor SA &copy;2020 </p>
+  </ion-toolbar>
+  
+  
+</ion-footer>

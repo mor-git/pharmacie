@@ -1,12 +1,12 @@
 .background
 {
-  // --background: url(../../../assets/img/bg.jpg) 0 0/100% 100% no-repeat;
-  background-color :#DCDCDC;
-  height: 100%;
-
-  --overflow: hidden;
+ 
+    --ion-background-color: #F7F7F7;
 }
 
+.card-back{
+  --ion-background-color: #FFF;
+}
 #card{
   border : 1px solid green;
   padding: 4px;
