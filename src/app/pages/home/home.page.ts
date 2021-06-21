@@ -21,7 +21,7 @@ export class HomePage implements OnInit {
   constructor(private apiService : ApiService,private route: Router, private loadingControl : LoadingController) { }
 
   ngOnInit() {
-   
+   this.listRegion();
   }
   async listRegion(){
     const loading = await this.loadingControl.create({

@@ -17,13 +17,14 @@ export class ApiService {
   constructor(private http: HttpClient,private http2 : HTTP) { }
 
   allRegion() : Observable<any>{
-    return this.http.get("http://192.168.1.13:8080/api/apiRegions", {});
+    return this.http.get("http://192.168.1.17:8000/api/apiRegions", {});
   }
   // allRegion(){
   //   return this.http2.get("http://localhost:8000/api/apiRegions", {}, {});
   // }
   getPharmacieByCommune(tab:any) :Observable<any>{
-    return this.http.post<any>("http://192.168.1.13:8080/api/pharmaciesApi",tab, HttpOptions);
+    // return this.http.post<any>("http://localhost:8000/api/pharmaciesApi",tab, HttpOptions);
+    return this.http.post<any>("http://192.168.1.17:8000/api/pharmaciesApi",tab, HttpOptions);
   }
 
   // allTypestructure(credentiel): Observable<[]> {

@@ -4,13 +4,13 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"  style="color: #fff;" ></ion-back-button>
      </ion-buttons>
-     <p style="text-align: center;color: #fff;margin-left: -50px;"><b >PHARMACIE</b></p>
+     <p style="text-align: center;color: #fff;margin-left: -50px;"><b >LISTE PHARMACIES</b></p>
   </ion-toolbar>
   </ion-header>
 <ion-content class="background">
 <div >
   <ion-grid >
-    <ion-row >
+    <ion-row > 
      <ion-col size="12">
         <!-- <ion-list style="background-color: #DCDCDC;"> -->
           <ion-card  id="card" *ngFor="let item of lisetAgences2" (click)="showAgence(item)" class="card-back"> 

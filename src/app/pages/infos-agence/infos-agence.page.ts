@@ -116,7 +116,7 @@ export class InfosAgencePage implements OnInit {
     });
     
    
-    this.presenToast('Pharmacie ajouté dans favoris');
+    this.presenToast('Pharmacie ajoutée dans favoris');
   }
 
   //delete favori 
@@ -145,6 +145,6 @@ export class InfosAgencePage implements OnInit {
     });
     
   
-    this.presenToast('Agence rétiré des favoris')
+    this.presenToast('Pharmacie rétirée des favoris')
   }
 }
